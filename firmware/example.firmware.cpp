@@ -25,7 +25,7 @@ void loop()
     
 }
 
-
+// Alexa Connected Home - Particle Specification V1.0.0 Compliant
 int control(String commandStr)
 {
     int periodIndex = commandStr.indexOf('.');
@@ -41,12 +41,16 @@ int control(String commandStr)
             if((deviceState == 0) || (deviceState == 1))
             {
                 digitalWrite(D7, deviceState);
-                return 0;
+                return 1;
             }
             else
             {
-                return -2;
+                return -3;
             }
+        }
+        else
+        {
+            return -2;
         }
     }
     else
