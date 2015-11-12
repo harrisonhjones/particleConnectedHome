@@ -4,85 +4,56 @@
 
 **Author**: Harrison Jones (harrison@hhj.me)
 
-**Date**: 9/24/2015
+**Date**: 11/11/2015
 
-**Revision**: 0.1.0
+**Revision**: 1.0.0
 
 
-## Spec # 1 ##
-
-### Description ###
-
-Allows for the control of a single Particle-powered device. To be implemented on a Particle device using cloud functions and variables
-
-### Device Name ###
-The friendly name of the device
-
-### FUNCTIONS ###
-
-- control(string controlString) ####
-
-    **usage**: allows for control of the device 
-
-    **format**: `state` (lower case ASCII characters)
-
-    **example**: `on`, `off`, `0.5`, `yellow`, `hsv(#,#,#)`, `rgb(#,#,#)`, "`xxxxxx`, ...
-
-    **return value**:
- 
-     - success =  1
-
-     - failure = -1
- 
-
-### VARIABLES ###
-
-- achSpec - int
-
-    MUST BE SET TO 1
-
-- firmwareVer - int - **optional** 
-
-    Set to the internal firmware version number
-
-## Spec # 2 ## - 
-
-### Description ###
+## Description ##
 
 Allows for the control of multipled virtual devices per physical Particle device. To be implemented on a Particle device using cloud functions and variables
 
-### Device Name ###
-Not needed
-
-### FUNCTIONS ###
+## Cloud Functions ##
 
 - control(string controlString) ####
 
     **usage**: allows for multiple devices to be controled.
 
-    **format**: `#1:state,#2:state,...` (lower case ASCII characters)
+    **format**: `device num.state` (lower case ASCII characters)
 
-    **example**: `1:on,2:off,3:.5,4:yellow,...`
+    **example**: `1.on`,`2.off`,`3..5`,`4.yellow`,etc
 
     **return value**:
  
      - success =  1
 
-     - failure = -1
+     - failure = -1 (if bad format), -2 if bad device num, -3 if bad device state
  
 
-### VARIABLES ###
+## Cloud Variables ##
 
-- devices - string
+- achStr - string
 
-    a valid JSON array with friendly name and device type.
+    a valid JSON array with device information. All values are technically optional but it will not working with a device number (n) and a friendlyName (fn)
     
-    **example** `[{"device name":"device type"},{"device name #2":"device type 2"}]`
+### Example achStr Value ###
 
-- achSpec - int
-
-    MUST BE SET TO 2
-
-- firmwareVer - int - **optional** 
-
-    Set to the internal firmware version number
+```
+{
+    "v": "0.3",
+    "mfn": "HarrisonJones",
+    "mdn": "Prototype",
+    "devices": [
+        {
+            "n": 1,
+            "fn": "Living Room Light",
+            "fd": "Floor lamp in the living room"
+        },
+        {
+            "n": 2,
+            "fn": "Status Light",
+            "fd": "Status light"
+        }
+    ]
+}
+```
