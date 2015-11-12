@@ -1,0 +1,28 @@
+{
+  "name": "alexa-particle-adapter",
+  "version": "1.0.0",
+  "description": "An Alexa Connected Home adapter for Particle",
+  "main": "index.js",
+  "dependencies": {
+    "bluebird": "^2.10.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alexa",
+    "echo",
+    "particle",
+    "particle",
+    "io",
+    "connected",
+    "home",
+    "home",
+    "automation",
+    "IOT",
+    "Amazon"
+  ],
+  "author": "Harrison H. Jones <harrison@hhj.me>",
+  "license": "ISC"
+}

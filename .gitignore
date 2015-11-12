@@ -1,0 +1,5 @@
+# Ignore zipped code
+*.zip
+
+# Ignore node_modules
+*/node_modules/*
